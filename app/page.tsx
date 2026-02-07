@@ -69,7 +69,7 @@ export default function HomePage() {
 
             {/* ACCESS menu */}
             <nav
-              className="space-y-1 sm:space-y-2 mb-8 sm:mb-12"
+              className="space-y-1 sm:space-y-2 mb-8 sm:mb-12 overflow-x-auto"
               aria-label="Product navigation"
             >
               <div className="text-[10px] sm:text-xs text-kansho-red/60 tracking-[0.2em] mb-3 sm:mb-4">
@@ -85,13 +85,13 @@ export default function HomePage() {
                 >
                   <button
                     onClick={() => handleSelect(product)}
-                    className="access-link w-full text-left text-xs sm:text-sm md:text-base tracking-wider block"
+                    className="access-link w-full text-left text-sm sm:text-base md:text-lg tracking-wider block"
                     disabled={isTransitioning}
+                    title={product.accessLabel}
                   >
                     <span className="text-kansho-red/60 mr-1">&gt;</span>{" "}
-                    ACCESS:{" "}
                     <GlitchText
-                      text={product.accessLabel}
+                      text={product.title}
                       glitchOnHover
                       className="inline"
                     />
@@ -107,10 +107,9 @@ export default function HomePage() {
               >
                 <Link
                   href="/classified/"
-                  className="access-link text-xs sm:text-sm md:text-base tracking-wider block"
+                  className="access-link text-sm sm:text-base md:text-lg tracking-wider block"
                 >
                   <span className="text-kansho-red/60 mr-1">&gt;</span>{" "}
-                  ACCESS:{" "}
                   <GlitchText
                     text="[CLASSIFIED::RESTRICTED]"
                     glitchOnHover

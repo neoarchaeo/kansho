@@ -149,6 +149,9 @@ body {
   cursor: pointer;
   transition: all 0.15s ease;
   border-left: 2px solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .access-link:hover {
   color: var(--kansho-red);
@@ -260,8 +263,7 @@ body {
 
 @media (max-width: 480px) {
   .access-link {
-    font-size: 0.65rem;
-    word-break: break-all;
+    font-size: 0.85rem;
   }
 }
 

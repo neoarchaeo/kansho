@@ -26,7 +26,7 @@ export const products: Product[] = [
       { label: "Targets", value: "WiFi (2.4/5GHz), Bluetooth" },
     ],
     images: [
-      "/images/suitchi-1.svg",
+      "/images/suitchi-1.jpg",
       "/images/suitchi-2.svg",
       "/images/suitchi-3.svg",
       "/images/suitchi-4.svg",

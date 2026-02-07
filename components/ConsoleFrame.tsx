@@ -15,7 +15,7 @@ export default function ConsoleFrame({ children }: ConsoleFrameProps) {
       <div className="console-frame m-1 sm:m-2 md:m-3 flex-1 flex flex-col animate-border-pulse">
         <div className="console-frame-inner flex-1 flex flex-col">
           {/* Header bar */}
-          <header className="border-b-2 border-frame-dark px-3 py-2 sm:px-6 sm:py-3 flex items-center justify-between bg-parchment-dark/50">
+          <header className="border-b-2 border-frame-dark px-3 py-2 sm:px-6 sm:py-3 flex items-center justify-between bg-parchment-dark/50 relative">
             {/* Status indicators - left */}
             <div className="hidden sm:flex items-center gap-2" aria-hidden="true">
               <div className="w-2 h-2 rounded-full bg-kansho-red animate-glow-pulse" />
@@ -36,8 +36,11 @@ export default function ConsoleFrame({ children }: ConsoleFrameProps) {
 
             {/* System info - right */}
             <div className="hidden sm:block text-[10px] text-frame-mid tracking-wider" aria-hidden="true">
-              SYS::ONLINE
+              LEDGER::REV.A // SYS::ONLINE
             </div>
+
+            {/* Subtle letterhead rule */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-kansho-red/15" aria-hidden="true" />
           </header>
 
           {/* Main content area */}

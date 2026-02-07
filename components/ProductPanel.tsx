@@ -23,7 +23,7 @@ export default function ProductPanel({ product, onClose }: ProductPanelProps) {
         <div className="text-[10px] sm:text-xs text-frame-mid tracking-[0.2em] mb-1">
           ASSET FILE // {product.id.toUpperCase()}
         </div>
-        <h2 className="text-sm sm:text-base md:text-lg text-kansho-red tracking-wider leading-tight font-bold">
+        <h2 className="text-base sm:text-lg md:text-xl text-kansho-red tracking-wider leading-tight font-bold">
           {product.title}
         </h2>
         <div className="w-full h-px bg-kansho-red/20 mt-3" />
@@ -39,7 +39,7 @@ export default function ProductPanel({ product, onClose }: ProductPanelProps) {
         <h3 className="text-[10px] sm:text-xs text-kansho-red tracking-[0.2em] mb-3 border-b border-kansho-red/20 pb-1">
           DESCRIPTION
         </h3>
-        <p className="text-xs sm:text-sm leading-relaxed text-kansho-black/85 tracking-wide">
+        <p className="text-sm sm:text-base leading-relaxed text-kansho-black/85 tracking-wide">
           {product.description}
         </p>
       </div>
@@ -53,9 +53,9 @@ export default function ProductPanel({ product, onClose }: ProductPanelProps) {
           {product.specs.map((spec, i) => (
             <div
               key={i}
-              className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-3 text-xs sm:text-sm"
+              className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-3 text-sm sm:text-base"
             >
-              <span className="text-frame-dark tracking-wider min-w-[160px] text-[11px]">
+              <span className="text-frame-dark tracking-wider min-w-[160px] text-[12px] sm:text-sm">
                 {spec.label}:
               </span>
               <span className="text-kansho-black/85 tracking-wide">
