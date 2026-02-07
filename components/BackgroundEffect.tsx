@@ -53,7 +53,7 @@ export default function BackgroundEffect() {
       }
     }
 
-    let animFrame: number;
+    let animFrame: number | null = null;
     let time = 0;
 
     const draw = () => {
@@ -104,11 +104,11 @@ export default function BackgroundEffect() {
       // Static draw once
       time = 50;
       draw();
-      cancelAnimationFrame(animFrame);
+      if (animFrame !== null) cancelAnimationFrame(animFrame);
     }
 
     return () => {
-      cancelAnimationFrame(animFrame);
+      if (animFrame !== null) cancelAnimationFrame(animFrame);
       window.removeEventListener("resize", resize);
     };
   }, []);
