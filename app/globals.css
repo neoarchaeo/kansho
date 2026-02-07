@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════
+   KANSHO.TECH — Corporate Cyberpunk Console CSS
+   ══════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --parchment: #F5F0E8;
+  --parchment-dark: #E8E0D0;
+  --parchment-light: #FAF7F2;
+  --kansho-black: #1A1A1A;
+  --kansho-red: #C41E3A;
+  --kansho-red-dark: #8B0000;
+  --kansho-red-glow: #FF2D55;
+  --frame-light: #C8C0B0;
+  --frame-mid: #A09888;
+  --frame-dark: #706860;
+  --frame-shadow: #504840;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--kansho-black);
+  font-family: 'Share Tech Mono', 'OCR A Std', 'OCR-A', 'OCR A Extended', 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--kansho-red);
+  color: var(--parchment);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--parchment-dark);
+  border-left: 1px solid var(--frame-mid);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--frame-dark);
+  border: 1px outset var(--frame-mid);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kansho-red);
+}
+
+/* ── Console Frame ── */
+.console-frame {
+  border: 4px solid var(--frame-mid);
+  border-top-color: var(--frame-light);
+  border-left-color: var(--frame-light);
+  border-right-color: var(--frame-dark);
+  border-bottom-color: var(--frame-dark);
+  box-shadow:
+    inset 0 0 0 2px var(--frame-shadow),
+    inset 0 0 20px rgba(196, 30, 58, 0.04),
+    0 0 0 1px var(--frame-shadow),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.console-frame-inner {
+  border: 2px solid var(--frame-dark);
+  border-top-color: var(--frame-dark);
+  border-left-color: var(--frame-dark);
+  border-right-color: var(--frame-light);
+  border-bottom-color: var(--frame-light);
+}
+
+/* ── Scanlines Overlay ── */
+.scanlines::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.015) 2px,
+    rgba(0, 0, 0, 0.015) 4px
+  );
+}
+
+/* ── CRT Vignette ── */
+.crt-vignette::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+}
+
+/* ── Glitch Effect ── */
+.glitch-active {
+  animation: glitch-distort 0.3s ease-in-out;
+}
+
+@keyframes glitch-distort {
+  0% { transform: translate(0); filter: none; clip-path: inset(0); }
+  10% { transform: translate(-3px, 1px); filter: hue-rotate(90deg); clip-path: inset(20% 0 40% 0); }
+  20% { transform: translate(3px, -2px); filter: hue-rotate(-60deg) saturate(2); clip-path: inset(60% 0 10% 0); }
+  30% { transform: translate(-1px, 3px); filter: hue-rotate(180deg); clip-path: inset(0); }
+  40% { transform: translate(2px, -1px); filter: saturate(3) brightness(1.1); clip-path: inset(30% 0 30% 0); }
+  50% { transform: translate(-2px, 0); filter: hue-rotate(-90deg); clip-path: inset(0); }
+  70% { transform: translate(1px, 1px); filter: hue-rotate(45deg); clip-path: inset(10% 0 50% 0); }
+  100% { transform: translate(0); filter: none; clip-path: inset(0); }
+}
+
+/* ── Red Glow Hover ── */
+.hover-glow {
+  transition: all 0.2s ease;
+}
+.hover-glow:hover {
+  text-shadow: 0 0 8px rgba(196, 30, 58, 0.5), 0 0 16px rgba(196, 30, 58, 0.25);
+  color: var(--kansho-red);
+}
+.hover-glow:hover .glitch-hover {
+  animation: glitch-distort 0.15s ease-in-out;
+}
+
+/* ── ACCESS Link Styling ── */
+.access-link {
+  position: relative;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-left: 2px solid transparent;
+}
+.access-link:hover {
+  color: var(--kansho-red);
+  text-shadow: 0 0 6px rgba(196, 30, 58, 0.4), 0 0 12px rgba(196, 30, 58, 0.15);
+  border-left-color: var(--kansho-red);
+  padding-left: 8px;
+  background: linear-gradient(90deg, rgba(196, 30, 58, 0.04) 0%, transparent 100%);
+}
+.access-link:focus-visible {
+  outline: 2px solid var(--kansho-red);
+  outline-offset: 2px;
+}
+
+/* ── Acquire Button ── */
+.btn-acquire {
+  position: relative;
+  background: var(--kansho-red);
+  color: var(--parchment);
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 32px;
+  border: 2px solid var(--kansho-red-dark);
+  border-top-color: #E8354F;
+  border-left-color: #E8354F;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+.btn-acquire::after {
+  content: 'COMING SOON — Q3 2026';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 26, 0.85);
+  color: var(--parchment);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+}
+
+/* ── Terminal Input ── */
+.terminal-input {
+  background: var(--parchment-dark);
+  border: 2px inset var(--frame-mid);
+  color: var(--kansho-black);
+  font-family: inherit;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.terminal-input:focus {
+  border-color: var(--kansho-red);
+  box-shadow: 0 0 8px rgba(196, 30, 58, 0.15);
+}
+.terminal-input::placeholder {
+  color: var(--frame-mid);
+}
+
+/* ── Circuit Background Pattern ── */
+.circuit-bg {
+  background-image:
+    linear-gradient(rgba(196, 30, 58, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 30, 58, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 20% 80%, rgba(196, 30, 58, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(196, 30, 58, 0.02) 0%, transparent 50%);
+  background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%;
+}
+
+/* ── Redacted Text ── */
+.redacted {
+  background: var(--kansho-black);
+  color: var(--kansho-black);
+  user-select: none;
+  padding: 0 4px;
+}
+.redacted::selection {
+  background: var(--kansho-black);
+  color: var(--kansho-black);
+}
+
+/* ── Classified Watermark ── */
+.classified-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: clamp(3rem, 15vw, 10rem);
+  font-weight: bold;
+  color: rgba(196, 30, 58, 0.04);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ── Responsive Utilities ── */
+@media (max-width: 640px) {
+  .console-frame {
+    border-width: 3px;
+  }
+  .access-link {
+    font-size: 0.75rem;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .access-link {
+    font-size: 0.65rem;
+    word-break: break-all;
+  }
+}
+
+/* ── Focus Visible for Accessibility ── */
+*:focus-visible {
+  outline: 2px solid var(--kansho-red);
+  outline-offset: 2px;
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .scanlines::after,
+  .crt-vignette::before {
+    display: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

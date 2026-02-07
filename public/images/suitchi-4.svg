@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#1A1A1A"/>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C41E3A" stroke-width="0.3" opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <rect x="16" y="16" width="768" height="568" fill="none" stroke="#C41E3A" stroke-width="0.5" opacity="0.2"/>
+  <rect x="200" y="80" width="400" height="400" rx="12" fill="#2A2420" stroke="#C41E3A" stroke-width="1" opacity="0.8"/>
+  <rect x="215" y="95" width="370" height="370" rx="6" fill="#1A1A1A" stroke="#504840" stroke-width="0.5"/>
+  <circle cx="400" cy="280" r="60" fill="none" stroke="#C41E3A" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="400" cy="280" r="30" fill="#C41E3A" opacity="0.08"/>
+  <circle cx="400" cy="280" r="4" fill="#C41E3A" opacity="0.9"/>
+  <line x1="370" y1="280" x2="340" y2="280" stroke="#C41E3A" stroke-width="0.8" opacity="0.3"/>
+  <line x1="430" y1="280" x2="460" y2="280" stroke="#C41E3A" stroke-width="0.8" opacity="0.3"/>
+  <line x1="400" y1="250" x2="400" y2="220" stroke="#C41E3A" stroke-width="0.8" opacity="0.3"/>
+  <line x1="400" y1="310" x2="400" y2="340" stroke="#C41E3A" stroke-width="0.8" opacity="0.3"/>
+  <text x="400" y="540" text-anchor="middle" font-family="monospace" font-size="13" fill="#C41E3A" opacity="0.7">SUITCHI_干渉 // DIMENSIONS</text>
+  <text x="400" y="560" text-anchor="middle" font-family="monospace" font-size="10" fill="#706860">12.4cm x 6.8cm x 2.1cm // 84g</text>
+</svg>
